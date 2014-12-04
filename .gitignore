@@ -24,3 +24,12 @@ proguard/
 
 # Log Files
 *.log
+
+.settings
+/tools
+/runtime
+/frameworks/js-bindings
+/frameworks/cocos2d-html5
+/frameworks/runtime-src/proj.android
+/frameworks/runtime-src/proj.ios_mac
+/frameworks/runtime-src/proj.win32
