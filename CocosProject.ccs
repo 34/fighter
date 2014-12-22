@@ -1,0 +1,32 @@
+<Solution>
+  <PropertyGroup Name="CocosProject" Version="2.0.2.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="images">
+          <Image Name="add.jpg" />
+          <Image Name="btn1.jpg" />
+          <Image Name="btn2.jpg" />
+          <Image Name="btn3.jpg" />
+          <Image Name="btn4.jpg" />
+          <Image Name="btn5.jpg" />
+          <Image Name="btn6.jpg" />
+          <Image Name="btn7.jpg" />
+          <Image Name="chapper_btn.jpg" />
+          <Image Name="img1.jpg" />
+          <Image Name="img2.jpg" />
+          <Image Name="img3.jpg" />
+          <Image Name="img4.jpg" />
+          <Image Name="img5.jpg" />
+          <Image Name="img6.jpg" />
+          <Image Name="line.jpg" />
+          <Image Name="sparator1.jpg" />
+          <Image Name="txt_bg1.jpg" />
+        </Folder>
+        <Project Name="MainScene.csd" />
+        <Project Name="TrainNode.csd" />
+        <Project Name="TaskNode.csd" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

@@ -26,6 +26,7 @@ proguard/
 *.log
 
 .settings
+.idea
 /tools
 /runtime
 /frameworks/js-bindings
