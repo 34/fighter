@@ -3,6 +3,7 @@
  */
 var puremvc = require('puremvc').puremvc;
 var constants = require('../../appConstants.js');
+var PlayerProxy = require('../../model/proxy/playerProxy.js');
 
 module.exports = puremvc.define(
     {
@@ -34,15 +35,19 @@ module.exports = puremvc.define(
 
         init: function() {
             var self = this;
+            var playerProxy = this.facade.retrieveProxy(PlayerProxy.NAME);
+            var playerData = playerProxy.getPlayer();
+
             var HomeLayer = require('./../component/homeLayer.js');
             self.viewComponent = new HomeLayer();
             self.viewComponent.onTrain = function(){
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.TRAIN});
             };
-            self.viewComponent.init();
+            self.viewComponent.init(playerData);
         },
 
         getResource: function() {
+
         }
 
     },

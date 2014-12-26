@@ -11,8 +11,7 @@
  * event
  * */
 
-
-project.util.Event = cc.Class.extend({
+var Event = module.exports = cc.Class.extend({
     _callback: {},
 
     on: function (event, fn) {

@@ -34,10 +34,8 @@ module.exports = cc.Layer.extend({
                 anchorY: 0.5
             });
 
-            btn_start_task = taskNode.getChildByName('btn_start_task');
-            btn_start_task.addClickEventListener(function() {
-
-            });
+            var btn_start_task = taskNode.getChildByName('btn_start_task');
+            btn_start_task.addClickEventListener(this.startTaskEvent.bind(this, btn_start_task));
             btn_start_task.setTitleText('开始任务');
             btn_start_task.setTitleFontSize(18);
 
@@ -45,5 +43,9 @@ module.exports = cc.Layer.extend({
         }
 
         return true;
+    },
+
+    startTaskEvent: function(sender) {
+        sender.setTitleText('已开始');
     }
 });

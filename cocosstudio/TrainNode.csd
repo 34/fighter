@@ -31,6 +31,19 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="images/btn7.jpg" />
               </NodeObjectData>
+              <NodeObjectData Name="Button_1" ActionTag="2120369278" FrameEvent="" Tag="44" ObjectIndex="1" TouchEnable="True" FontSize="22" ButtonText="返回 " Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+                <Position X="53.6846" Y="913.7944" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="55.0000" Y="36.0000" />
+                <PrePosition X="0.0839" Y="0.9519" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <TextColor A="255" R="36" G="36" B="221" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
+              </NodeObjectData>
             </Children>
             <SingleColor A="255" R="150" G="200" B="255" />
             <FirstColor A="255" R="150" G="200" B="255" />

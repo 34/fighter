@@ -86,6 +86,16 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="images/img1.jpg" />
           </NodeObjectData>
+          <NodeObjectData Name="img1" ActionTag="-1756429003" FrameEvent="" Tag="45" ObjectIndex="12" ctype="SpriteObjectData">
+            <Position X="319.9984" Y="27.5002" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <Size X="586.0000" Y="51.0000" />
+            <PrePosition X="0.0000" Y="0.0000" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="images/img1.jpg" />
+          </NodeObjectData>
         </Children>
       </ObjectData>
     </Content>

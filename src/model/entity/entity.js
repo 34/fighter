@@ -11,8 +11,9 @@
  * entity
  * */
 
+var Event = require('../../util/event.js');
 
-project.model.Entity = project.util.Event.extend({
+var Entity = module.exports = Event.extend({
 	set: function (name, value) {
 		if (typeof value != "undefined") {
 			if (this["_" + name] !== value) {

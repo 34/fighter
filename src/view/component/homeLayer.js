@@ -13,10 +13,26 @@ module.exports = cc.Layer.extend({
         return true;
     },
 
-    init: function() {
+    init: function(player) {
+        this.update(player);
+
         var rootNode = this._rootNode;
         var btn_train = rootNode.getChildByName('main_panel').getChildByName('btn_train');
         btn_train.addClickEventListener(this.buttonTrainListener.bind(this));
+    },
+
+    update: function(player) {
+        var node = this._rootNode;
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.atk);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
     },
 
     buttonTrainListener: function() {

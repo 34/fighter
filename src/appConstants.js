@@ -1,7 +1,7 @@
 /**
  * Created by Arthur on 2014/12/20.
  */
-module.exports = {
+var constants = module.exports = {
     APP_NAME: "fighter",
 
     NOTIFICATION: {
@@ -14,5 +14,10 @@ module.exports = {
     SCENE: {
         HOME: 'HomeMediator',
         TRAIN: 'TrainMediator'
+    },
+
+    TASK_STATUS : {
+        STOP: 1,
+        START: 2
     }
 };
