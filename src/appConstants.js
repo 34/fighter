@@ -13,7 +13,9 @@ var constants = module.exports = {
     SCENE_ACTION: 'scene_action',
     SCENE: {
         HOME: 'HomeMediator',
-        TRAIN: 'TrainMediator'
+        TRAIN: 'TrainMediator',
+        LOVE: "LoveMediator",
+        FIGHT: "FightMediator"
     },
 
     TASK_STATUS : {

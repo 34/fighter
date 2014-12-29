@@ -1,12 +1,12 @@
 /**
- * Created by Arthur on 2014/12/20.
+ * Created by Arthur on 2014/12/29.
  */
 var puremvc = require('puremvc').puremvc;
 var constants = require('../../appConstants.js');
 
 module.exports = puremvc.define(
     {
-        name: 'fighter.view.mediator.TrainMediator',
+        name: 'fighter.view.mediator.LoveMediator',
         parent: puremvc.Mediator
     },
 
@@ -34,8 +34,12 @@ module.exports = puremvc.define(
 
         init: function() {
             var self = this;
-            var TrainLayer = require('./../component/trainLayer.js');
-            self.viewComponent = new TrainLayer();
+            var LoveLayer = require('./../component/loveLayer.js');
+            self.viewComponent = new LoveLayer();
+
+            /*
+            TODO: get love info
+             */
             self.viewComponent.init();
 
             self.viewComponent.onBack = function() {
@@ -51,6 +55,6 @@ module.exports = puremvc.define(
 
     // static members
     {
-        NAME: 'TrainMediator'
+        NAME: 'LoveMediator'
     }
 );

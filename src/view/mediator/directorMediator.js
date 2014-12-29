@@ -34,7 +34,7 @@ module.exports = puremvc.define(
                     var sceneMediator = this.facade.retrieveMediator(SceneMediator.NAME );
 
                     if(sceneMediator && sceneMediator.getViewComponent()) {
-                        cc.director.runScene(new cc.TransitionFade(1.2, sceneMediator.getViewComponent()));
+                        cc.director.runScene(sceneMediator.getViewComponent());
                     }
 
                     break;

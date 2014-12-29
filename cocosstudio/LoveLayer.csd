@@ -50,6 +50,19 @@
             <PrePosition X="0.0716" Y="0.8472" />
             <PreSize X="0.0000" Y="0.0000" />
           </NodeObjectData>
+          <NodeObjectData Name="btn_back" ActionTag="-576270666" FrameEvent="" Tag="20" ObjectIndex="1" TouchEnable="True" FontSize="14" ButtonText="返回" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+            <Position X="69.9020" Y="901.8950" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <Size X="46.0000" Y="36.0000" />
+            <PrePosition X="0.1092" Y="0.9395" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
+          </NodeObjectData>
         </Children>
         <SingleColor A="255" R="0" G="0" B="0" />
         <FirstColor A="255" R="0" G="0" B="0" />

@@ -43,6 +43,15 @@ module.exports = puremvc.define(
             self.viewComponent.onTrain = function(){
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.TRAIN});
             };
+
+            self.viewComponent.onLove = function(){
+                self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.LOVE});
+            };
+
+            self.viewComponent.onFight = function(){
+                self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.FIGHT});
+            };
+
             self.viewComponent.init(playerData);
         },
 

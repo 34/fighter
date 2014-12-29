@@ -19,6 +19,12 @@ module.exports = cc.Layer.extend({
         var rootNode = this._rootNode;
         var btn_train = rootNode.getChildByName('main_panel').getChildByName('btn_train');
         btn_train.addClickEventListener(this.buttonTrainListener.bind(this));
+
+        var btn_love = rootNode.getChildByName('main_panel').getChildByName('btn_love');
+        btn_love.addClickEventListener(this.buttonLoveListener.bind(this));
+
+        var btn_fight = rootNode.getChildByName('main_panel').getChildByName('btn_fight');
+        btn_fight.addClickEventListener(this.buttonFightListener.bind(this));
     },
 
     update: function(player) {
@@ -38,6 +44,18 @@ module.exports = cc.Layer.extend({
     buttonTrainListener: function() {
         if (this.onTrain) {
             this.onTrain();
+        }
+    },
+
+    buttonLoveListener: function() {
+        if (this.onLove) {
+            this.onLove();
+        }
+    },
+
+    buttonFightListener: function() {
+        if (this.onFight) {
+            this.onFight();
         }
     }
 });

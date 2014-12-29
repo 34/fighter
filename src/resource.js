@@ -14,7 +14,9 @@ var res = {
 
     MainNode: "res/MainScene.csb",
     TaskNode: "res/TaskNode.csb",
-    TrainNode: "res/TrainNode.csb"
+    TrainNode: "res/TrainNode.csb",
+    LoveLayer: "res/LoveLayer.csb",
+    LoveItem: "res/LoveItem.csb"
 
 };
 

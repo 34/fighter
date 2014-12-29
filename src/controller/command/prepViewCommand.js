@@ -6,6 +6,7 @@ var DirectorMediator = require('../../view/mediator/directorMediator.js');
 var HomeMediator = require('../../view/mediator/homeMediator.js');
 var SceneMediator = require('../../view/mediator/sceneMediator.js');
 var TrainMediator = require('../../view/mediator/trainMediator.js');
+var LoveMediator = require('../../view/mediator/loveMediator.js');
 
 module.exports = puremvc.define ({
         name: 'fighter.controller.command.PrepViewCommand',
@@ -25,6 +26,7 @@ module.exports = puremvc.define ({
             this.facade.registerMediator(new SceneMediator());
             this.facade.registerMediator(new HomeMediator());
             this.facade.registerMediator(new TrainMediator());
+            this.facade.registerMediator(new LoveMediator());
         }
     }
 );
