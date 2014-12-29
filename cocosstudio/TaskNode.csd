@@ -76,16 +76,6 @@
             <PressedFileData Type="Normal" Path="images/btn1.jpg" />
             <NormalFileData Type="Normal" Path="images/btn1.jpg" />
           </NodeObjectData>
-          <NodeObjectData Name="img1" ActionTag="-274240538" VisibleForFrame="False" FrameEvent="" Tag="54" ObjectIndex="10" ctype="SpriteObjectData">
-            <Position X="319.2590" Y="25.9943" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <Size X="586.0000" Y="51.0000" />
-            <PrePosition X="0.0000" Y="0.0000" />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="images/img1.jpg" />
-          </NodeObjectData>
           <NodeObjectData Name="img1" ActionTag="-1756429003" FrameEvent="" Tag="45" ObjectIndex="12" ctype="SpriteObjectData">
             <Position X="319.9984" Y="27.5002" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -95,6 +85,15 @@
             <PrePosition X="0.0000" Y="0.0000" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="images/img1.jpg" />
+          </NodeObjectData>
+          <NodeObjectData Name="txt_task_desc" ActionTag="1169739387" FrameEvent="" Tag="46" ObjectIndex="4" FontSize="20" LabelText="" ctype="TextObjectData">
+            <Position X="50.0000" Y="27.5002" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <AnchorPoint ScaleY="0.5000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <Size X="0.0000" Y="0.0000" />
+            <PrePosition X="0.0000" Y="0.0000" />
+            <PreSize X="0.0000" Y="0.0000" />
           </NodeObjectData>
         </Children>
       </ObjectData>

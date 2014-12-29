@@ -26,6 +26,7 @@
         <Project Name="MainScene.csd" />
         <Project Name="TrainNode.csd" />
         <Project Name="TaskNode.csd" />
+        <Project Name="LoveLayer.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

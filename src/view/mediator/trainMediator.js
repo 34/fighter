@@ -36,8 +36,11 @@ module.exports = puremvc.define(
             var self = this;
             var TrainLayer = require('./../component/trainLayer.js');
             self.viewComponent = new TrainLayer();
-
             self.viewComponent.init();
+
+            self.viewComponent.onBack = function() {
+                self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.HOME});
+            };
         },
 
         getResource: function() {

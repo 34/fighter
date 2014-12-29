@@ -1,15 +1,15 @@
 /**
  * Created by Arthur on 2014/12/26.
  */
-var puremvc = require('puremvc');
+var puremvc = require('puremvc').puremvc;
 var Player = require('../entity/player.js');
 
-var PlayerProxy = puremvc.define({
+var PlayerProxy = module.exports = puremvc.define({
         name: 'figther.model.proxy.PlayerProxy',
         parent: puremvc.Proxy,
 
         constructor: function() {
-            puremvc.Proxy.prototype.call(this, this.constructor.NAME);
+            puremvc.Proxy.call(this, this.constructor.NAME);
 
             this.setData(new Player({
                 id: 1,
@@ -19,8 +19,8 @@ var PlayerProxy = puremvc.define({
 
                 hp: 302004,
                 atk: 40930,
-                defense: 29342,
-                undefense: 12341,
+                defence: 29342,
+                undefence: 12341,
                 crit: 30,
                 uncrit: 10,
                 dodge: 20,

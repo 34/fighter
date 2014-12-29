@@ -31,7 +31,7 @@
                 <PreSize X="0.0000" Y="0.0000" />
                 <FileData Type="Normal" Path="images/btn7.jpg" />
               </NodeObjectData>
-              <NodeObjectData Name="Button_1" ActionTag="2120369278" FrameEvent="" Tag="44" ObjectIndex="1" TouchEnable="True" FontSize="22" ButtonText="返回 " Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+              <NodeObjectData Name="btn_back" ActionTag="2120369278" FrameEvent="" Tag="44" ObjectIndex="1" TouchEnable="True" FontSize="22" ButtonText="返回 " Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
                 <Position X="53.6846" Y="913.7944" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

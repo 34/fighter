@@ -23,16 +23,16 @@ module.exports = cc.Layer.extend({
 
     update: function(player) {
         var node = this._rootNode;
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.atk);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.hp);
+        node.getChildByName('txt_gold').setString(player.get('gold'));
+
+        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.get('hp'));
+        node.getChildByName('main_panel').getChildByName('txt_atk').setString(player.get('atk'));
+        node.getChildByName('main_panel').getChildByName('txt_defence').setString(player.get('defence'));
+        node.getChildByName('main_panel').getChildByName('txt_undefence').setString(player.get('undefence'));
+        node.getChildByName('main_panel').getChildByName('txt_crit').setString(player.get('crit'));
+        node.getChildByName('main_panel').getChildByName('txt_uncrit').setString(player.get('uncrit'));
+        node.getChildByName('main_panel').getChildByName('txt_doget').setString(player.get('doget'));
+        node.getChildByName('main_panel').getChildByName('txt_hit').setString(player.get('hit'));
     },
 
     buttonTrainListener: function() {
