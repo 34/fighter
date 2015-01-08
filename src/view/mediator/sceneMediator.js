@@ -25,7 +25,9 @@ module.exports = puremvc.define
         /** @override */
         listNotificationInterests: function () {
             return [
-                constants.SCENE_ACTION
+                constants.SCENE_ACTION,
+                constants.SCENE_ACTION_ADD_CHILD,
+                constants.CONFIRM_DIALOG
             ];
         },
 
@@ -43,7 +45,14 @@ module.exports = puremvc.define
                     }
 
                     break;
-
+                case constants.SCENE_ACTION_ADD_CHILD:
+                    this.addChild(notification.getBody());
+                    break;
+                case constants.CONFIRM_DIALOG:
+                    var ConfirmDialog = require('../component/confirmDialog.js');
+                    var body = notification.getBody();
+                    this.addChild(new ConfirmDialog(body.title, body.desc, body.callback));
+                    break;
             }
         },
 
@@ -73,7 +82,7 @@ module.exports = puremvc.define
                 }
 
                 self.sendNotification(constants.NOTIFICATION.SCENE_CHANGED);
-            }
+            };
 
             if (res) {
                 cc.LoaderScene.preload(res, handleSceneChanged, this);
@@ -81,6 +90,10 @@ module.exports = puremvc.define
             else {
                 handleSceneChanged();
             }
+        },
+
+        addChild: function(node) {
+            this.viewComponent.addChild(node);
         }
     },
     // STATIC MEMBERS

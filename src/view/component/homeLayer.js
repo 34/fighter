@@ -14,6 +14,7 @@ module.exports = cc.Layer.extend({
     },
 
     init: function(player) {
+        this._player = player;
         this.update(player);
 
         var rootNode = this._rootNode;
@@ -37,7 +38,7 @@ module.exports = cc.Layer.extend({
         node.getChildByName('main_panel').getChildByName('txt_undefence').setString(player.get('undefence'));
         node.getChildByName('main_panel').getChildByName('txt_crit').setString(player.get('crit'));
         node.getChildByName('main_panel').getChildByName('txt_uncrit').setString(player.get('uncrit'));
-        node.getChildByName('main_panel').getChildByName('txt_doget').setString(player.get('doget'));
+        node.getChildByName('main_panel').getChildByName('txt_doget').setString(player.get('dodge'));
         node.getChildByName('main_panel').getChildByName('txt_hit').setString(player.get('hit'));
     },
 
@@ -57,5 +58,10 @@ module.exports = cc.Layer.extend({
         if (this.onFight) {
             this.onFight();
         }
+    },
+
+    onTaskFinished: function(player) {
+        this._player = player;
+        this.update(player);
     }
 });

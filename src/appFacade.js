@@ -30,6 +30,16 @@ var AppFacade = module.exports = puremvc.define(
 
         startup: function () {
             this.sendNotification(constants.NOTIFICATION.STARTUP);
+
+            var self = this;
+            cc.eventManager.addCustomListener(constants.CUSTOM_NOTICICATION, function(event){
+                var userData = event.getUserData();
+                self.sendNotification(
+                    userData.name,
+                    userData.data,
+                    userData.type
+                );
+            });
         }
     },
     // STATIC MEMBERS

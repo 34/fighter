@@ -28,6 +28,9 @@
         <Project Name="TaskNode.csd" />
         <Project Name="LoveLayer.csd" />
         <Project Name="LoveItem.csd" />
+        <Project Name="LoveConfirmNode.csd" />
+        <Project Name="ConfirmNode.csd" />
+        <Project Name="FightNode.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -1,48 +1,62 @@
+var Entity = require('./entity.js');
 var constants = require('../../appConstants.js');
+var _ = require('underscore');
 
 var Task = module.exports = Entity.extend({
-    ctor: function () {
-        this._type = "";
-        this._startTime = 0;
-        this._status = constants.TASK_STATUS.STOP;
-        this._timePerCount = 0;
-        this._consumePerCount = 0;
-        this._obtainPerCount = 0;
-        this._totalCount = 0;
+    ctor: function (data) {
+        this._name = "TaskEntity";
+        this._key = "task";
+
+        this._super(data);
+    },
+
+    init: function(data) {
+        this._key = this._key + '.' + data.id;
+        if (!this.fetch()) {
+            this.create(data);
+        }
+    },
+
+    create: function(data) {
+        this.sets(data);
+        this.save();
     },
 
     start: function (count) {
         this.sets({
-            status: TASK_STATUS.START,
+            status: constants.TASK_STATUS.START,
             startTime: new Date().getTime(),
             totalCount: count || this._totalCount
         });
+        this.save();
+    },
 
-        if (cc.isFunction(this.execute)) {
-            this.schedule(this.execute, 600);
-        }
+    finish: function() {
+        this.sets({
+            status: constants.TASK_STATUS.FINISH
+        });
+        this.save();
     },
 
     isStarted: function() {
-        return this._status == constants.TASK_STATUS.START;
+        return this.get('status') == constants.TASK_STATUS.START;
+    },
+
+    isFinished: function() {
+        return this.timeLeft() <= 0;
     },
 
     timeLeft: function() {
-        return new Date().getTime() - this._startTime;
+        return (this.get('startTime') + this.get('totalCount') * this.get('timePerCount'))
+            - new Date().getTime();
+    },
+
+    timeLeftStr: function() {
+        var time = this.timeLeft();
+        return (time/1000/60).toFixed(2) + '分钟后';
     },
 
     totalObtain: function() {
-        return this._obtainPerCount * this._totalCount;
-    },
-
-    getCurrentInfo: function () {
-        return {
-            type: this._type,
-            startTime: this._startTime,
-            timeLeft: this.timeLeft(),
-            status: this._status,
-            totalObtain: this.totalObtain(),
-            totalCount: this._totalCount
-        };
+        return this.get('obtainPerCount') * this.get('totalCount');
     }
 });

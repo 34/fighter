@@ -21,7 +21,6 @@ module.exports = puremvc.define ({
          */
         execute: function (note) {
             cc.log('PrepViewCommand execute');
-
             this.facade.registerMediator(new DirectorMediator());
             this.facade.registerMediator(new SceneMediator());
             this.facade.registerMediator(new HomeMediator());

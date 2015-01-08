@@ -15,12 +15,16 @@ module.exports = puremvc.define(
     {
         /** @override */
         listNotificationInterests: function() {
-            return [];
+            return [constants.PLAYER_ACTION];
         },
 
         /** @override */
         handleNotification: function(note) {
-
+            switch(note.getName()) {
+                case constants.PLAYER_ACTION:
+                    this.viewComponent.update(this.getPlayer());
+                    break;
+            }
         },
 
         /** @override */
@@ -35,11 +39,12 @@ module.exports = puremvc.define(
 
         init: function() {
             var self = this;
-            var playerProxy = this.facade.retrieveProxy(PlayerProxy.NAME);
-            var playerData = playerProxy.getPlayer();
+
 
             var HomeLayer = require('./../component/homeLayer.js');
             self.viewComponent = new HomeLayer();
+            self.viewComponent.init(this.getPlayer());
+
             self.viewComponent.onTrain = function(){
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.TRAIN});
             };
@@ -51,14 +56,16 @@ module.exports = puremvc.define(
             self.viewComponent.onFight = function(){
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.FIGHT});
             };
+        },
 
-            self.viewComponent.init(playerData);
+        getPlayer: function() {
+            var playerProxy = this.facade.retrieveProxy(PlayerProxy.NAME);
+            return playerProxy.getPlayer();
         },
 
         getResource: function() {
 
         }
-
     },
 
     // static members

@@ -3,6 +3,7 @@
  */
 var puremvc = require('puremvc').puremvc;
 var Player = require('../entity/player.js');
+var constants = require('../../appConstants.js');
 
 var PlayerProxy = module.exports = puremvc.define({
         name: 'figther.model.proxy.PlayerProxy',
@@ -10,35 +11,53 @@ var PlayerProxy = module.exports = puremvc.define({
 
         constructor: function() {
             puremvc.Proxy.call(this, this.constructor.NAME);
-
-            this.setData(new Player({
-                id: 1,
-                name: "我家没人",
-                photo: "",
-                gold: 12937,
-
-                hp: 302004,
-                atk: 40930,
-                defence: 29342,
-                undefence: 12341,
-                crit: 30,
-                uncrit: 10,
-                dodge: 20,
-                hit: 10
-            }));
+            this.init();
         }
     },
 
     {
+        init: function() {
+            var player = new Player();
+            this.setData(player);
+        },
 
         getPlayer: function() {
-            return this.data;
+            if (this.data != null) {
+                return this.data;
+            }
         },
 
         updatePlayer: function(name, value) {
             if (this.data != null) {
                 this.data.set(name, value);
             }
+        },
+
+        updatePlayerByTask: function(task) {
+            this.data.add(task.get('attr'), task.totalObtain());
+            this.data.save();
+        },
+
+        updatePlayerByLove: function(love) {
+            this.data.add('loveCount', love.count);
+            this.data.reduceDaiyCount('freeLove', love.count);
+            this.data.add('gold', -love.gold);
+            this.data.save();
+            var loveCount = this.data.get('loveCount');
+            var loveLv = this.data.get('loveLv');
+            var needCount = Player.LoveCountMap[loveLv];
+            if (needCount != null && needCount > 0) {
+                if (loveCount >= needCount) {
+                    this.data.add('loveLv', 1);
+//                    this.facade.sendNotification(
+//                        constants.PLAYER_ACTION
+//                    );
+                }
+            }
+        },
+
+        setName: function(name) {
+            this.data.set('name', name);
         }
     },
 

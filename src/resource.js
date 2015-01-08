@@ -16,8 +16,9 @@ var res = {
     TaskNode: "res/TaskNode.csb",
     TrainNode: "res/TrainNode.csb",
     LoveLayer: "res/LoveLayer.csb",
-    LoveItem: "res/LoveItem.csb"
-
+    LoveItem: "res/LoveItem.csb",
+    LoveConfirmNode: "res/LoveConfirmNode.csb",
+    ConfirmNode: "res/ConfirmNode.csb"
 };
 
 var g_resources = [];

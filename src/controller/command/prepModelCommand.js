@@ -3,6 +3,7 @@
  */
 var puremvc = require('puremvc').puremvc;
 var PlayerProxy = require('../../model/proxy/playerProxy.js');
+var TaskProxy = require('../../model/proxy/taskProxy.js');
 
 module.exports = puremvc.define({
         name: 'fighter.controller.command.PrepModelCommand',
@@ -18,6 +19,7 @@ module.exports = puremvc.define({
         execute: function (note) {
             cc.log('PrepModelCommand execute');
             this.facade.registerProxy(new PlayerProxy());
+            this.facade.registerProxy(new TaskProxy());
         }
     }
 );

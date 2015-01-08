@@ -25,15 +25,15 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
 
         var txt_value = this._txt_value = this.getOwner().getChildByName('txt_value');
         txt_value.attr({anchorX: 0, anchorY: 0.5});
-        txt_value.setString(this._options.value);
+        txt_value.setString('+' + this._options.value);
 
         var txt_count = this._txt_count = this.getOwner().getChildByName('txt_count');
-        txt_value.attr({anchorX: 0, anchorY: 0.5});
-        txt_value.setString(this._options.count + '/' + this._options.countNeed + '次');
+        txt_count.attr({anchorX: 0, anchorY: 0.5});
+        txt_count.setString(this._options.count + '/' + this._options.countNeed + '次');
 
         var txt_lv = this._txt_lv = this.getOwner().getChildByName('txt_lv');
-        txt_value.attr({anchorX: 0, anchorY: 0.5});
-        txt_value.setString(this._options.lv + '级');
+        txt_lv.attr({anchorX: 0.5, anchorY: 0.5});
+        txt_lv.setString(this._options.lv + '级');
 
         var btn_love = this._btn_love = this.getOwner().getChildByName('btn_love');
         btn_love.setTitleText('献吻');
@@ -44,7 +44,7 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
     },
 
     loveListener: function() {
-
+        this.getOwner().parent.parent.onLoveListener();
     }
 });
 

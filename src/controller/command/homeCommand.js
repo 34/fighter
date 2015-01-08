@@ -20,9 +20,13 @@ module.exports = puremvc.define({
             // This registers multiple notes to a single command which performs different logic based on the note name.
             // In a more complex app, we'd usually be registering a different command to each notification name.
             cc.log('HomeCommand execute');
+
+
             this.facade.sendNotification(constants.SCENE_ACTION, {
                 name: constants.SCENE.HOME
             });
+
+            this.facade.sendNotification(constants.TASK_ACTION_MONITOR);
         }
     }
 );

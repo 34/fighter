@@ -16,23 +16,21 @@ module.exports = cc.Layer.extend({
         return true;
     },
 
-    init: function(options) {
-        if (!options) {
-            var p = this._rootNode.getChildByName('desc_bg').getPosition();
-            options = {
-                lv: 1,
-                value: 1,
-                count: 10,
-                countNeed: 99,
-                position: cc.p(0, p.y - 133)
-            };
-        }
-        this._txt_desc = this._rootNode.getChildByName('txt_desc');
-        this.updateLv(options.lv || 1);
+    init: function(items) {
+        var p = this._rootNode.getChildByName('desc_bg').getPosition();
+        p.y = p.y - 133;
+        var option, i;
+        for(i = 0; i < items.length; i++) {
+            option = items[i];
+            option.position = cc.p(0, p.y - 85*i);
 
-        var loveItem = ccs.csLoader.createNode(res.LoveItem);
-        loveItem.addComponent(LoveItemController.create(options));
-        this._rootNode.addChild(loveItem);
+            var loveItem = ccs.csLoader.createNode(res.LoveItem);
+            loveItem.addComponent(LoveItemController.create(option));
+            this._rootNode.addChild(loveItem);
+        }
+
+        this._txt_desc = this._rootNode.getChildByName('txt_desc');
+        this.updateLv(1);
     },
 
     updateLv: function(lv) {
@@ -43,5 +41,13 @@ module.exports = cc.Layer.extend({
         if (cc.isFunction(this.onBack)) {
             this.onBack();
         }
+    },
+
+    onLoveListener: function() {
+        if (cc.isFunction(this.showLoveConfirm)){
+            this.showLoveConfirm();
+        }
     }
+
+
 });

@@ -14,13 +14,55 @@
 var Event = require('../../util/event.js');
 
 var Entity = module.exports = Event.extend({
+    ctor: function() {
+        this._data = {};
+        this.init.apply(this, arguments);
+    },
+
+    init: function() {
+
+    },
+
+    save: function() {
+        if (this._key) {
+            cc.sys.localStorage.setItem(this._key, JSON.stringify(this._data));
+        }
+    },
+
+    fetch: function() {
+        if (this._key) {
+            var data = cc.sys.localStorage.getItem(this._key);
+
+            if (!data) {
+                return false;
+            }
+
+            try{
+                var attrs = JSON.parse(data);
+                this.sets(attrs);
+                return true;
+            } catch(e) {
+                cc.error('can not parse entity data: ', data);
+            }
+        }
+        return false;
+    },
+
+    create: function() {
+
+    },
+
+    getData: function() {
+        return this._data;
+    },
+
 	set: function (name, value) {
 		if (typeof value != "undefined") {
-			if (this["_" + name] !== value) {
-				this["_" + name] = value;
+			if (this._data[name] !== value) {
+				this._data[name] = value;
 			}
 
-			this.emit(name + "Change");
+			this.emit(name + ".change", value);
 		}
 	},
 
@@ -32,28 +74,17 @@ var Entity = module.exports = Event.extend({
 		}
 	},
 
-	add: function (name, value) {
-		if (typeof value != "undefined") {
-			if (value) {
-				this.set(name, this["_" + name] + value);
-			}
-		}
-	},
-
-	adds: function (attrs) {
-		var key;
-
-		for (key in attrs) {
-			this.add(key, attrs[key]);
-		}
-	},
-
 	get: function (name) {
-		return this["_" + name];
+		return this._data[name];
 	},
+
+    add: function(name, value) {
+        var val = this.get(name);
+        this.set(name, value + val);
+    },
 
 	has: function (name) {
-		return (typeof (this["_" + name]) != "undefined");
+		return (typeof (this._data[name]) != "undefined");
 	},
 
 	schedule: function (fn, interval, repeat, delay) {
@@ -61,7 +92,7 @@ var Entity = module.exports = Event.extend({
 		repeat = (repeat == null) ? cc.REPEAT_FOREVER : repeat;
 		delay = delay || 0;
 
-		cc.Director.getInstance().getScheduler().scheduleCallbackForTarget(this, fn, interval, repeat, delay, false);
+		cc.Director.sharedDirector.getScheduler().scheduleCallbackForTarget(this, fn, interval, repeat, delay, false);
 	},
 
 	scheduleOnce: function (fn, delay) {
@@ -70,10 +101,10 @@ var Entity = module.exports = Event.extend({
 
 	unschedule: function (fn) {
 		// explicit nil handling
-		cc.Director.getInstance().getScheduler().unscheduleCallbackForTarget(this, fn);
+		cc.Director.sharedDirector.getScheduler().unscheduleCallbackForTarget(this, fn);
 	},
 
 	unscheduleAllCallbacks: function () {
-		cc.Director.getInstance().getScheduler().unscheduleAllCallbacksForTarget(this);
+		cc.Director.sharedDirector.getScheduler().unscheduleAllCallbacksForTarget(this);
 	}
 });

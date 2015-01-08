@@ -3,6 +3,7 @@
  */
 var puremvc = require('puremvc').puremvc;
 var constants = require('../../appConstants.js');
+var TaskProxy = require('../../model/proxy/taskProxy.js');
 
 module.exports = puremvc.define(
     {
@@ -14,12 +15,20 @@ module.exports = puremvc.define(
     {
         /** @override */
         listNotificationInterests: function() {
-            return [];
+            return [constants.TASK_ACTION];
         },
 
         /** @override */
         handleNotification: function(note) {
-
+            switch(note.getName()) {
+                case constants.TASK_ACTION:
+                    if (note.getType() == constants.TASK_ACTION_FINISHED) {
+                        if(this.viewComponent) {
+                            this.viewComponent.onTaskFinished(note.getBody());
+                        }
+                    }
+                    break;
+            }
         },
 
         /** @override */
@@ -34,12 +43,20 @@ module.exports = puremvc.define(
 
         init: function() {
             var self = this;
+
+            var taskProxy = this.facade.retrieveProxy(TaskProxy.NAME);
+            var taskList = taskProxy.getData();
+
             var TrainLayer = require('./../component/trainLayer.js');
             self.viewComponent = new TrainLayer();
-            self.viewComponent.init();
+            self.viewComponent.init(taskList);
 
             self.viewComponent.onBack = function() {
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.HOME});
+            };
+
+            self.viewComponent.onTask = function(task) {
+                self.sendNotification(constants.TASK_ACTION, task, constants.TASK_ACTION_START);
             };
         },
 
