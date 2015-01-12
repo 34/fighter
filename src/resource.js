@@ -18,7 +18,8 @@ var res = {
     LoveLayer: "res/LoveLayer.csb",
     LoveItem: "res/LoveItem.csb",
     LoveConfirmNode: "res/LoveConfirmNode.csb",
-    ConfirmNode: "res/ConfirmNode.csb"
+    ConfirmNode: "res/ConfirmNode.csb",
+    FightNode: "res/FightNode.csb"
 };
 
 var g_resources = [];
