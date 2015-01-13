@@ -34,13 +34,19 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
         this._task_name.attr({anchorX: 0, anchorY: 0.5});
         this._task_name.setString(this._task.get('name') + ': 每次+' + this._task.get('obtainPerCount'));
 
+        this._progress_bar = this.getOwner().getChildByName('progress_bar');
+        this._progress_bar.attr({anchorX: 0, anchorY: 0.5});
+
         var txt_task_desc = this._txt_task_desc = this.getOwner().getChildByName('txt_task_desc');
+        var txt_time = this._txt_time = this.getOwner().getChildByName('txt_time');
         txt_task_desc.attr({anchorX: 0, anchorY: 0.5});
+        txt_time.attr({anchorX: 1, anchorY: 0.5});
+
         this.setTaskDesc();
     },
 
     startListener: function() {
-        this._btn_start.setTitleText('进行中...');
+
         this._task.start(this.getCount());
         this.setTaskDesc();
         //this.getOwner().parent.parent.onStartTask(this._task);
@@ -49,6 +55,8 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
     setTaskButtonTitle: function() {
         if (this._task.isStarted() && !this._task.isFinished()) {
             this._btn_start.setTitleText('进行中...');
+            this._btn_start.disabled = true;
+            this._btn_start.bright = false;
         } else {
             this._btn_start.setTitleText('开始任务');
         }
@@ -57,10 +65,10 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
     setTaskDesc: function() {
         if (this._task.isStarted() && !this._task.isFinished()) {
             this._txt_task_desc.setString(cc.formatStr(
-                '任务进行中，将在%s之后完成！预计奖励:+%s',
-                this._task.timeLeftStr(),
+                '任务进行中，奖励 +%s',
                 this._task.totalObtain()
             ));
+            this._txt_time.string = this._task.timeLeftStr();
         } else {
             this._txt_task_desc.setString('执行任务可以增加相应的属性');
         }

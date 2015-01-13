@@ -8,7 +8,7 @@ module.exports = cc.Layer.extend({
 
     ctor: function() {
         this._super();
-        this._rootNode = ccs.csLoader.createNode(res.MainNode);
+        this._rootNode = ccs.csLoader.createNode(res.HomeNode);
         this.addChild(this._rootNode);
         return true;
     },
@@ -18,13 +18,13 @@ module.exports = cc.Layer.extend({
         this.update(player);
 
         var rootNode = this._rootNode;
-        var btn_train = rootNode.getChildByName('main_panel').getChildByName('btn_train');
+        var btn_train = rootNode.getChildByName('btn_train');
         btn_train.addClickEventListener(this.buttonTrainListener.bind(this));
 
-        var btn_love = rootNode.getChildByName('main_panel').getChildByName('btn_love');
+        var btn_love = rootNode.getChildByName('btn_love');
         btn_love.addClickEventListener(this.buttonLoveListener.bind(this));
 
-        var btn_fight = rootNode.getChildByName('main_panel').getChildByName('btn_fight');
+        var btn_fight = rootNode.getChildByName('btn_fight');
         btn_fight.addClickEventListener(this.buttonFightListener.bind(this));
     },
 
@@ -32,14 +32,14 @@ module.exports = cc.Layer.extend({
         var node = this._rootNode;
         node.getChildByName('txt_gold').setString(player.get('gold'));
 
-        node.getChildByName('main_panel').getChildByName('txt_hp').setString(player.get('hp'));
-        node.getChildByName('main_panel').getChildByName('txt_atk').setString(player.get('atk'));
-        node.getChildByName('main_panel').getChildByName('txt_defence').setString(player.get('defence'));
-        node.getChildByName('main_panel').getChildByName('txt_undefence').setString(player.get('undefence'));
-        node.getChildByName('main_panel').getChildByName('txt_crit').setString(player.get('crit'));
-        node.getChildByName('main_panel').getChildByName('txt_uncrit').setString(player.get('uncrit'));
-        node.getChildByName('main_panel').getChildByName('txt_doget').setString(player.get('dodge'));
-        node.getChildByName('main_panel').getChildByName('txt_hit').setString(player.get('hit'));
+        node.getChildByName('txt_hp').setString(player.get('hp'));
+        node.getChildByName('txt_atk').setString(player.get('atk'));
+        node.getChildByName('txt_defence').setString(player.get('defence'));
+        node.getChildByName('txt_undefence').setString(player.get('undefence'));
+        node.getChildByName('txt_crit').setString(player.get('crit'));
+        node.getChildByName('txt_uncrit').setString(player.get('uncrit'));
+        node.getChildByName('txt_dodge').setString(player.get('dodge'));
+        node.getChildByName('txt_hit').setString(player.get('hit'));
     },
 
     buttonTrainListener: function() {

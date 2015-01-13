@@ -53,7 +53,7 @@ var Task = module.exports = Entity.extend({
 
     timeLeftStr: function() {
         var time = this.timeLeft();
-        return (time/1000/60).toFixed(2) + '分钟后';
+        return (time/1000/60).toFixed(2) + '分钟';
     },
 
     totalObtain: function() {

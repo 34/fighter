@@ -40,7 +40,7 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
         btn_love.addClickEventListener(this.loveListener.bind(this));
 
         var desc_bg = this.getOwner().getChildByName('desc_bg');
-        desc_bg.attr({anchorX: 0.5, anchorY: 0});
+        desc_bg.attr({anchorX: 0.5, anchorY: 0.5});
     },
 
     loveListener: function() {

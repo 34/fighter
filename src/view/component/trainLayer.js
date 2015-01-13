@@ -18,11 +18,11 @@ module.exports = cc.Layer.extend({
 
     init: function(taskList) {
         var size = cc.winSize;
-        var baseY = size.height*84/100;
+        var baseY = size.height*90/100;
         var i = 0;
         for (var id in taskList) {
             var task = taskList[id];
-            var y = baseY - 100*(i+1);
+            var y = baseY - 120*(i+1);
             var taskNode = ccs.csLoader.createNode(res.TaskNode);
             taskNode.addComponent(TrainItemController.create(task, cc.p(0, y)));
             this._trainNode.addChild(taskNode, 10, task.get('id'));

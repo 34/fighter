@@ -23,7 +23,6 @@
           <Image Name="sparator1.jpg" />
           <Image Name="txt_bg1.jpg" />
           <Image Name="gray.png" />
-          <Image Name="blue.png" />
           <Image Name="brack.png" />
           <Image Name="green.png" />
           <Image Name="orange.png" />
@@ -34,6 +33,11 @@
           <Image Name="green_a.png" />
           <Image Name="orage_a.png" />
           <Image Name="yellow_a.png" />
+          <Image Name="header_bg.png" />
+          <Image Name="rechage_bg.png" />
+          <Image Name="rechage_bg_a.png" />
+          <Image Name="blue.png" />
+          <Image Name="blue_d.png" />
         </Folder>
         <Project Name="MainScene.csd" />
         <Project Name="TrainNode.csd" />
@@ -43,7 +47,9 @@
         <Project Name="LoveConfirmNode.csd" />
         <Project Name="ConfirmNode.csd" />
         <Project Name="FightNode.csd" />
-        <Project Name="Layer.csd" />
+        <Project Name="HomeNode.csd" />
+        <Project Name="loveLayerNode.csd" />
+        <Project Name="titleNode.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>
