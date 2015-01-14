@@ -20,7 +20,8 @@ var res = {
     LoveConfirmNode: "res/LoveConfirmNode.csb",
     ConfirmNode: "res/ConfirmNode.csb",
     FightNode: "res/FightNode.csb",
-    HomeNode: "res/HomeNode.csb"
+    HomeNode: "res/HomeNode.csb",
+    titleNode: "res/titleNode.csb"
 };
 
 var g_resources = [];

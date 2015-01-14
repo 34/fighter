@@ -19,13 +19,19 @@ module.exports = cc.Layer.extend({
 
         var rootNode = this._rootNode;
         var btn_train = rootNode.getChildByName('btn_train');
+        btn_train.titleText = '演武场';
         btn_train.addClickEventListener(this.buttonTrainListener.bind(this));
 
         var btn_love = rootNode.getChildByName('btn_love');
+        btn_love.titleText = '虞姬之爱';
         btn_love.addClickEventListener(this.buttonLoveListener.bind(this));
 
         var btn_fight = rootNode.getChildByName('btn_fight');
+        btn_fight.titleText = '雄霸天下';
         btn_fight.addClickEventListener(this.buttonFightListener.bind(this));
+
+        var btn_recharge = rootNode.getChildByName('btn_recharge');
+        btn_recharge.titleText = '充值';
     },
 
     update: function(player) {

@@ -91,7 +91,7 @@
             <PressedFileData Type="Normal" Path="images/blue_a.png" />
             <NormalFileData Type="Normal" Path="images/blue.png" />
           </NodeObjectData>
-          <NodeObjectData Name="btn_rechage" ActionTag="526833384" FrameEvent="" Tag="11" ObjectIndex="8" TouchEnable="True" FontSize="36" ButtonText="充�?" Scale9Width="100" Scale9Height="100" ctype="ButtonObjectData">
+          <NodeObjectData Name="btn_recharge" ActionTag="526833384" FrameEvent="" Tag="11" ObjectIndex="8" TouchEnable="True" FontSize="36" ButtonText="充�?" Scale9Width="100" Scale9Height="100" ctype="ButtonObjectData">
             <Position X="324.6651" Y="123.7291" />
             <Scale ScaleX="1.3000" ScaleY="1.3000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -105,11 +105,11 @@
             <NormalFileData Type="Normal" Path="images/rechage_bg.png" />
           </NodeObjectData>
           <NodeObjectData Name="console_bg" ActionTag="-1858164023" FrameEvent="" Tag="12" ObjectIndex="4" Scale9Enable="True" Scale9Width="40" Scale9Height="40" ctype="ImageViewObjectData">
-            <Position X="0.0000" Y="350.0000" />
+            <Position X="40.0000" Y="350.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <AnchorPoint />
             <CColor A="255" R="255" G="255" B="255" />
-            <Size X="640.0000" Y="250.0000" />
+            <Size X="560.0000" Y="250.0000" />
             <PrePosition X="0.0000" Y="0.0000" />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="images/gray.png" />

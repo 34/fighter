@@ -7,11 +7,19 @@ var TrainItemController = require('./controller/trainItem');
 module.exports = cc.Layer.extend({
     ctor: function() {
         this._super();
-        var trainNode = this._trainNode = ccs.csLoader.createNode(res.TrainNode);
+        var trainNode = this._trainNode = new cc.LayerColor(cc.color(51, 51, 51, 255));
         this.addChild(trainNode);
 
-        var btn_back = trainNode.getChildByName('Panel_1').getChildByName('btn_back');
+        var titleNode = ccs.csLoader.createNode(res.titleNode);
+        titleNode.attr({
+            x: 0,
+            y: cc.winSize.height - 80
+        });
+        var txt_title = titleNode.getChildByName('txt_title');
+        txt_title.string = '演武场';
+        var btn_back = titleNode.getChildByName('btn_back');
         btn_back.addClickEventListener(this.onBackListener.bind(this));
+        trainNode.addChild(titleNode);
 
         return true;
     },
