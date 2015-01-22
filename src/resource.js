@@ -10,6 +10,12 @@ var res = {
     img5_jpg: "res/images/img5.jpg",
     img6_jpg: "res/images/img6.jpg",
     txt_bg1_jpg: "res/images/txt_bg1.jpg",
+    black_png: "res/images/brack.png",
+    gray_png: "res/images/gray.png",
+    blue_png: "res/images/blue.png",
+    blue_a_png: "res/images/blue_a.png",
+    blue_d_png: "res/images/blue_d.png",
+    love_lv_bg_png: "res/images/love_lv_bg.png",
 
 
     MainNode: "res/MainScene.csb",

@@ -27,7 +27,7 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
         btn_add_count.addClickEventListener(this.addCoundListener.bind(this));
 
         this._count = this.getOwner().getChildByName('count_value');
-        this._count.setString(this.DEFAULT_COUNT);
+        this._count.setString(this.DEFAULT_COUNT+'次');
         this._count.attr({anchorX: 0, anchorY: 0.5});
 
         this._task_name = this.getOwner().getChildByName('task_name');
@@ -41,25 +41,58 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
         var txt_time = this._txt_time = this.getOwner().getChildByName('txt_time');
         txt_task_desc.attr({anchorX: 0, anchorY: 0.5});
         txt_time.attr({anchorX: 1, anchorY: 0.5});
+        this.updateProgress();
 
         this.setTaskDesc();
+        this.scheduleUpdate();
+    },
+
+    scheduleUpdate: function() {
+        if (this._task.isStarted()) {
+            cc.director
+                .getScheduler()
+                .scheduleCallbackForTarget(this, this.updateProgress, 1, cc.REPEAT_FOREVER);
+        }
+    },
+
+    updateProgress: function() {
+        var percent = this._task.progressPercent();
+        this._progress_bar.scaleX = 586/100/40*percent;
+        this._updateTime();
+
+        if (this._task.timeLeft() <= 0) {
+            cc.director
+                .getScheduler()
+                .unscheduleCallbackForTarget(this, this.updateProgress);
+        }
     },
 
     startListener: function() {
-
         this._task.start(this.getCount());
         this.setTaskDesc();
+        this.scheduleUpdate();
         //this.getOwner().parent.parent.onStartTask(this._task);
     },
 
     setTaskButtonTitle: function() {
-        if (this._task.isStarted() && !this._task.isFinished()) {
+        if (!this._task.isFinished()) {
             this._btn_start.setTitleText('进行中...');
-            this._btn_start.disabled = true;
+            this._btn_start.enabled = false;
             this._btn_start.bright = false;
+            this._btn_add_count.enabled = false;
+            this._btn_add_count.bright = false;
         } else {
             this._btn_start.setTitleText('开始任务');
+            this._btn_start.enabled = true;
+            this._btn_start.bright = true;
+            this._btn_add_count.enabled = true;
+            this._btn_add_count.bright = true;
+            this._progress_bar.scaleX = 0;
         }
+    },
+
+    _updateTime: function () {
+        this._txt_time.string = this._task.timeLeftStr();
     },
 
     setTaskDesc: function() {
@@ -68,9 +101,10 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
                 '任务进行中，奖励 +%s',
                 this._task.totalObtain()
             ));
-            this._txt_time.string = this._task.timeLeftStr();
+            this._updateTime();
         } else {
             this._txt_task_desc.setString('执行任务可以增加相应的属性');
+            this._txt_time.string = '';
         }
         this.setTaskButtonTitle();
     },
@@ -84,7 +118,8 @@ var TrainItemController = module.exports =  ccs.ComController.extend({
     },
 
     addCoundListener: function() {
-        this._count.setString(parseInt(this._count.getString()) + 1);
+        this.DEFAULT_COUNT += 1;
+        this._count.setString(this.DEFAULT_COUNT+'次');
     },
 
     reduceCountListener: function() {

@@ -50,7 +50,7 @@ module.exports = cc.Layer.extend({
 
     updateCount: function(count, gold) {
         this._txt_count.setString(cc.formatStr(this._txt_count_str, count));
-        this._txt_desc.setString(cc.formatStr(this._txt_desc_str, count, gold))
+        this._txt_desc.setString(cc.formatStr(this._txt_desc_str, count, gold, this._freeCount))
     },
 
     onAddListener: function() {

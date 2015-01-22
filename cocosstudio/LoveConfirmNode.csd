@@ -40,12 +40,12 @@
                 <PreSize X="0.7778" Y="0.0057" />
                 <FileData Type="Normal" Path="images/gray.png" />
               </NodeObjectData>
-              <NodeObjectData Name="txt_desc" ActionTag="-1758199377" FrameEvent="" Tag="16" ObjectIndex="2" PrePositionEnabled="True" FontSize="22" LabelText="额外献吻虞姬，每次献吻花费1钻&#xA;当前累计献吻%s次，共花费%s钻" VerticalAlignmentType="VT_Bottom" ctype="TextObjectData">
+              <NodeObjectData Name="txt_desc" ActionTag="-1758199377" FrameEvent="" Tag="16" ObjectIndex="2" PrePositionEnabled="True" FontSize="22" LabelText="额外献吻虞姬，每次献吻花费1钻&#xA;当前累计献吻%s次，共花费%s钻&#xA;剩余免费次数%s次" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Bottom" ctype="TextObjectData">
                 <Position X="225.0000" Y="241.7541" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <Size X="319.0000" Y="44.0000" />
+                <Size X="319.0000" Y="66.0000" />
                 <PrePosition X="0.5000" Y="0.6907" />
                 <PreSize X="0.0000" Y="0.0000" />
               </NodeObjectData>

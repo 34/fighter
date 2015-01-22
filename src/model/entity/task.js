@@ -53,10 +53,54 @@ var Task = module.exports = Entity.extend({
 
     timeLeftStr: function() {
         var time = this.timeLeft();
-        return (time/1000/60).toFixed(2) + '分钟';
+        return this._timeString(time);
+    },
+
+    totalTime: function() {
+        return this.get('totalCount')*this.get('timePerCount');
+    },
+
+    totalTimeStr: function() {
+        return this._timeString(this.totalTime());
+    },
+
+    progressPercent: function() {
+        return parseInt((this.totalTime() - this.timeLeft())/this.totalTime()*100);
     },
 
     totalObtain: function() {
         return this.get('obtainPerCount') * this.get('totalCount');
+    },
+
+    _timeString: function(ms) {
+        var _str = '';
+        var s = ms/1000;
+
+        var timeMap = {
+            day: 60 * 60 * 24,
+            hour: 60 * 60,
+            minute: 60
+        };
+
+        var d = parseInt(s / timeMap.day);
+        if ( d > 0) {
+            _str += ':' + d;
+            s = s%timeMap.day;
+        }
+
+        var hour = parseInt(s / timeMap.hour);
+        if (hour > 0) {
+            _str += ':' + hour;
+            s = s%timeMap.hour;
+        }
+
+        var minute = parseInt(s / timeMap.minute);
+        if (minute > 0) {
+            _str += ':' + minute;
+            s = s%timeMap.minute;
+        }
+
+        _str += ':' + parseInt(s);
+        return _str.slice(1);
     }
 });

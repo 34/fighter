@@ -21,7 +21,12 @@ module.exports = cc.Layer.extend({
         btn_back.addClickEventListener(this.onBackListener.bind(this));
         trainNode.addChild(titleNode);
 
+        this.schedule(this.updateTaskProgress, 1, cc.REPEAT_FOREVER);
         return true;
+    },
+
+    updateTaskProgress: function() {
+
     },
 
     init: function(taskList) {

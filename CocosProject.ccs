@@ -42,7 +42,6 @@
         <Project Name="MainScene.csd" />
         <Project Name="TrainNode.csd" />
         <Project Name="TaskNode.csd" />
-        <Project Name="LoveLayer.csd" />
         <Project Name="LoveItem.csd" />
         <Project Name="LoveConfirmNode.csd" />
         <Project Name="ConfirmNode.csd" />
@@ -50,6 +49,7 @@
         <Project Name="HomeNode.csd" />
         <Project Name="loveLayerNode.csd" />
         <Project Name="titleNode.csd" />
+        <Project Name="LoveNode.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

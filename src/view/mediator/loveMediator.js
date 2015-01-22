@@ -45,7 +45,11 @@ module.exports = puremvc.define(
             /*
             TODO: get love info
              */
-            self.viewComponent.init(this.getLoveItems());
+
+            var playerProxy = this.facade.retrieveProxy(PlayerProxy.NAME);
+            var player = playerProxy.getPlayer();
+
+            self.viewComponent.init(player, this.getLoveItems());
 
             self.viewComponent.onBack = function() {
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.HOME});

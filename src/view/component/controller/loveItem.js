@@ -2,6 +2,7 @@
  * Created by Arthur on 2014/12/29.
  */
 var _ = require('underscore');
+var res = require('../../../resource.js').res;
 
 var LoveItemController = module.exports =  ccs.ComController.extend({
     ctor: function() {
@@ -11,12 +12,14 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
         this._position = null;
     },
 
-    init: function(options) {
+    init: function(options, player) {
         if (!options || _.isEmpty(options)) {
             options = LoveItemController.DEFAULT_OPTIONS;
         }
 
         this._options = options;
+        this._loveLv = player.get('loveLv');
+        this._loveFreeCount = player.get('dailyCount').freeLove;
         return true;
     },
 
@@ -31,6 +34,7 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
         txt_count.attr({anchorX: 0, anchorY: 0.5});
         txt_count.setString(this._options.count + '/' + this._options.countNeed + '次');
 
+        this._lv_bg = this.getOwner().getChildByName('lv_bg');
         var txt_lv = this._txt_lv = this.getOwner().getChildByName('txt_lv');
         txt_lv.attr({anchorX: 0.5, anchorY: 0.5});
         txt_lv.setString(this._options.lv + '级');
@@ -41,6 +45,13 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
 
         var desc_bg = this.getOwner().getChildByName('desc_bg');
         desc_bg.attr({anchorX: 0.5, anchorY: 0.5});
+
+        if (this._loveLv == this._options.lv) {
+            this._lv_bg.setTexture(res.love_lv_bg_png);
+        } else {
+            btn_love.enabled = false;
+            btn_love.bright = false;
+        }
     },
 
     loveListener: function() {
@@ -48,9 +59,9 @@ var LoveItemController = module.exports =  ccs.ComController.extend({
     }
 });
 
-LoveItemController.create = function(options) {
+LoveItemController.create = function(player, options) {
     var con = new LoveItemController();
-    con.init(options);
+    con.init(player, options);
     return con;
 }
 
