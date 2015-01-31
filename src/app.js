@@ -1,8 +1,10 @@
 var AppFacade = require('./appFacade.js');
 var g_resouces = require('./resource.js').g_resouces;
+var data = require('./model/data.js');
 
 (function() {
     cc.game.onStart = function(){
+        cc.log(data);
         cc.view.adjustViewPort(true);
         cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.SHOW_ALL);
         cc.view.resizeWithBrowserSize(true);

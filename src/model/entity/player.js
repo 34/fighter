@@ -56,5 +56,7 @@ Player.DEFAULT_DATA = {
 
     dailyCount: {
         freeLove: 90
-    }
+    },
+    province: 1,
+    city: 0
 };

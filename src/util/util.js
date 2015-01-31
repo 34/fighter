@@ -4,6 +4,11 @@
 
 var util = module.exports = function() {};
 
+util.hitRate = function(rate) {
+    var rd = Math.random()*10000;
+    return rate * 100 < rd;
+};
+
 util.extend = function(child, parent) {
     if ('function' !== typeof child)
         throw new TypeError('#extend- child should be Function');
