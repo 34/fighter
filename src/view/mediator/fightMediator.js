@@ -3,6 +3,7 @@
  */
 var puremvc = require('puremvc').puremvc;
 var constants = require('../../appConstants.js');
+var PlayerProxy = require('../../model/proxy/playerProxy.js');
 
 module.exports = puremvc.define(
     {
@@ -37,12 +38,19 @@ module.exports = puremvc.define(
         init: function() {
             var self = this;
 
+            var playerProxy = this.facade.retrieveProxy(PlayerProxy.NAME);
+            var player = playerProxy.getPlayer();
+
             var FightLayer = require('./../component/fightLayer.js');
             self.viewComponent = new FightLayer();
-            self.viewComponent.init();
+            self.viewComponent.init(player);
 
             self.viewComponent.onBack = function() {
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.HOME});
+            };
+
+            self.viewComponent.onFight = function(report, index) {
+                self.sendNotification(constants.FIGHT_ACTION, {report: report, city: index});
             };
         },
 

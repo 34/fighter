@@ -4,6 +4,7 @@
 var puremvc = require('puremvc').puremvc;
 var constants = require('../../appConstants.js');
 var PlayerProxyName = require('../../model/proxy/playerProxy.js').NAME;
+var ReportProxyName = require('../../model/proxy/reportProxy.js').NAME;
 
 module.exports = puremvc.define({
         name: 'fighter.controller.command.BattleCommand',
@@ -22,7 +23,17 @@ module.exports = puremvc.define({
             cc.log('BattleCommand execute');
 
             var player = this.facade.retrieveProxy(PlayerProxyName);
-            var city = note.getBody();
+            var reportProxy = this.facade.retrieveProxy(ReportProxyName);
+
+            switch (note.getName()) {
+                case constants.FIGHT_ACTION:
+                    var data = note.getBody();
+                    if (data.report.isWin() && player.getData().get('city') == data.city) {
+                        player.getData().winACity();
+                        reportProxy.saveReport(data.report);
+                    }
+                    break;
+            }
         }
     }
 );

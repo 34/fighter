@@ -1,4 +1,5 @@
 var Entity = require('./entity.js');
+var cityConfig = require('../data.js');
 
 var Player = module.exports = Entity.extend({
     ctor: function() {
@@ -8,6 +9,16 @@ var Player = module.exports = Entity.extend({
 
         this.on('loveCount.change', function(count) {
 
+        });
+
+        var self = this;
+        this.on('city.change', function(city) {
+            var data = cityConfig[self.get('province')];
+            if (data && data.cities.length == city) {
+                self.add('province', 1);
+                self.set('city', 0);
+                self.save();
+            }
         });
     },
 
@@ -24,11 +35,16 @@ var Player = module.exports = Entity.extend({
         this.save();
     },
 
-    reduceDaiyCount: function(name, count) {
+    reduceDailyCount: function(name, count) {
         var dc = this.get('dailyCount');
         if (typeof dc[name] != 'undefined' && dc[name] > 0) {
             dc[name] = Math.max(0, dc[name] - count);
         }
+    },
+
+    winACity: function() {
+        this.add('winCount', 1);
+        this.add('city', 1);
     }
 });
 
@@ -41,6 +57,7 @@ Player.LoveCountMap = {
 };
 
 Player.DEFAULT_DATA = {
+    name: '项羽',
     gold: 100,
     hp: 101,
     atk: 102,

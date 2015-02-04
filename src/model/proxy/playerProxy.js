@@ -27,6 +27,11 @@ var PlayerProxy = module.exports = puremvc.define({
             }
         },
 
+        winACity: function() {
+            this.data.winACity();
+            this.data.save();
+        },
+
         updatePlayer: function(name, value) {
             if (this.data != null) {
                 this.data.set(name, value);
@@ -40,7 +45,7 @@ var PlayerProxy = module.exports = puremvc.define({
 
         updatePlayerByLove: function(love) {
             this.data.add('loveCount', love.count);
-            this.data.reduceDaiyCount('freeLove', love.count);
+            this.data.reduceDailyCount('freeLove', love.count);
             this.data.add('gold', -love.gold);
             this.data.save();
             var loveCount = this.data.get('loveCount');

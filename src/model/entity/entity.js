@@ -19,14 +19,21 @@ var Entity = module.exports = Event.extend({
         this.init.apply(this, arguments);
     },
 
-    init: function() {
-
+    init: function(key, data) {
+        this._key = key;
+        this.sets(data);
+        return this;
     },
 
     save: function() {
         if (this._key) {
             cc.sys.localStorage.setItem(this._key, JSON.stringify(this._data));
         }
+    },
+
+    setKey: function(key) {
+        this._key = key;
+        return this;
     },
 
     fetch: function() {
@@ -86,6 +93,10 @@ var Entity = module.exports = Event.extend({
 	has: function (name) {
 		return (typeof (this._data[name]) != "undefined");
 	},
+
+    toJson: function() {
+        return this._data;
+    },
 
 	schedule: function (fn, interval, repeat, delay) {
 		interval = interval || 0;

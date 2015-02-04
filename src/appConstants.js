@@ -36,5 +36,6 @@ var constants = module.exports = {
     TASK_ACTION_STOP: 'task_action_stop',
     TASK_ACTION_FINISHED: 'task_action_finished',
 
-    LOVE_ACTION: 'love_action'
+    LOVE_ACTION: 'love_action',
+    FIGHT_ACTION: 'fight_action'
 };

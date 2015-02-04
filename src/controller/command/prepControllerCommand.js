@@ -6,6 +6,7 @@ var constants = require('../../appConstants.js');
 var PlayerCommand = require('./playerCommand.js');
 var TaskCommand = require('./taskCommand.js');
 var TaskMonitorCommand = require('./taskMonitorCommand.js');
+var BttleCommand = require('./battleCommand.js');
 
 module.exports = puremvc.define({
         name: 'fighter.controller.command.PrepControllerCommand',
@@ -26,6 +27,7 @@ module.exports = puremvc.define({
             this.facade.registerCommand(constants.LOVE_ACTION, PlayerCommand);
             this.facade.registerCommand(constants.TASK_ACTION, TaskCommand);
             this.facade.registerCommand(constants.TASK_ACTION_MONITOR, TaskMonitorCommand);
+            this.facade.registerCommand(constants.FIGHT_ACTION, BttleCommand);
         }
     }
 );

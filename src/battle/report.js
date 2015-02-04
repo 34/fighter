@@ -12,7 +12,6 @@ var Report = module.exports = function(items, isEnd, time, winner) {
 
 Report.prototype.add = function(item) {
     this.items.push(item);
-    this._showItems.push(item);
 };
 
 Report.prototype.isEnd = function() {
@@ -30,6 +29,14 @@ Report.prototype.show = function() {
             return item.toString();
         }
     }
+};
+
+Report.prototype.isWin = function() {
+    return this.winner == '项羽';
+};
+
+Report.prototype.length = function() {
+    return this.items.length;
 };
 
 Report.prototype.output = function() {

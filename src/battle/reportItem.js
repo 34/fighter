@@ -10,11 +10,19 @@ var ReportItem = module.exports = function(me, ememy, damage, isCrit, isDodge) {
 
     this.isEnd = false;
     this.winner = null;
+    this.me_hp = 0;
+    this.ememy_hp = 0;
+};
+
+ReportItem.prototype.setHp = function(name, val) {
+    this[name] = val;
 };
 
 ReportItem.prototype.toJson = function() {
     return {
         me: this.me,
+        me_hp: this.me_hp,
+        ememy_hp: this.ememy_hp,
         ememy: this.ememy,
         damage: this.damage,
         isCrit: this.isCrit,
@@ -25,17 +33,22 @@ ReportItem.prototype.toJson = function() {
 };
 
 ReportItem.prototype.toString = function() {
-    if (this.isEnd) {
-        return '';
-    }
 
+    var res = [];
     if (this.isDodge) {
-        return this.ememy + '闪避';
+        res.push(this.me + '攻击' + this.ememy + ', ' + this.ememy + '闪避');
+        return res;
     }
 
-    var string =  this.me + '对' + this.ememy + '造成' + this.damage + '点伤害';
+    var string =  this.me + '攻击' + this.ememy + ', 造成' + this.damage + '点伤害';
     if (this.isCrit) {
         string += '(暴击)';
     }
-    return string;
+    res.push(string);
+
+    if (this.isEnd) {
+        res.push(this.winner + '击败了对手，凯旋而归');
+    }
+
+    return res;
 };

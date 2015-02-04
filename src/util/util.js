@@ -6,7 +6,7 @@ var util = module.exports = function() {};
 
 util.hitRate = function(rate) {
     var rd = Math.random()*10000;
-    return rate * 100 < rd;
+    return rd <= rate * 100;
 };
 
 util.extend = function(child, parent) {
