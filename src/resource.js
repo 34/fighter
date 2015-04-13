@@ -27,7 +27,8 @@ var res = {
     ConfirmNode: "res/ConfirmNode.csb",
     FightNode: "res/FightNode.csb",
     HomeNode: "res/HomeNode.csb",
-    titleNode: "res/titleNode.csb"
+    titleNode: "res/titleNode.csb",
+    RechargeNode: "res/RechargeNode.csb"
 };
 
 var g_resources = [];

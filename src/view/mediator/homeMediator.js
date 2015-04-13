@@ -56,6 +56,10 @@ module.exports = puremvc.define(
             self.viewComponent.onFight = function(){
                 self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.FIGHT});
             };
+
+            self.viewComponent.onRecharge = function(){
+                self.sendNotification(constants.SCENE_ACTION, {name: constants.SCENE.RECHARGE});
+            };
         },
 
         getPlayer: function() {

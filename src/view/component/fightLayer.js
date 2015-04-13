@@ -162,7 +162,7 @@ module.exports = cc.Layer.extend({
         this.schedule(function() {
             var strs = report.show();
             if (!strs) return;
-            
+
             strs.forEach(function(str) {
                 var line = new cc.LabelTTF(str, null, 24);
                 line.color = cc.color(0, 0, 0);
@@ -174,7 +174,8 @@ module.exports = cc.Layer.extend({
                 line.y = self._console.height - 20 - childCount * 35;
                 self._console.addChild(line);
 
-                if (childCount+1 == report.length() && index+1 == self._player.get('city') && report.isWin()) {
+                if (childCount+1 == report.length() &&
+                    index+1 == self._player.get('city') && report.isWin()) {
                     self.onBattleEnd(index);
                 }
             });

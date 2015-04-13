@@ -50,6 +50,7 @@
         <Project Name="loveLayerNode.csd" />
         <Project Name="titleNode.csd" />
         <Project Name="LoveNode.csd" />
+        <Project Name="RechargeNode.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

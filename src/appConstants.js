@@ -19,7 +19,8 @@ var constants = module.exports = {
         HOME: 'HomeMediator',
         TRAIN: 'TrainMediator',
         LOVE: "LoveMediator",
-        FIGHT: "FightMediator"
+        FIGHT: "FightMediator",
+        RECHARGE: 'RechargeMediator'
     },
 
     TASK_STATUS : {

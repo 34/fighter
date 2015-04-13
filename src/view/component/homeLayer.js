@@ -32,6 +32,7 @@ module.exports = cc.Layer.extend({
 
         var btn_recharge = rootNode.getChildByName('btn_recharge');
         btn_recharge.titleText = '充值';
+        btn_recharge.addClickEventListener(this.buttonRechargeListener.bind(this));
     },
 
     update: function(player) {
@@ -63,6 +64,12 @@ module.exports = cc.Layer.extend({
     buttonFightListener: function() {
         if (this.onFight) {
             this.onFight();
+        }
+    },
+
+    buttonRechargeListener: function() {
+        if (this.onRecharge) {
+            this.onRecharge();
         }
     },
 
